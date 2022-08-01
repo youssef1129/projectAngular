@@ -1,0 +1,32 @@
+<div class="cnt" >
+    <button mat-raised-button color="warn" class="notPrinted" (click)="print()">PRINT
+        <mat-icon>print</mat-icon>
+    </button>
+    <!-- *ngFor='let in of counter(5)' -->
+    <div id="myId">
+
+
+        <div *ngFor="let article of articles" class="cnt2 myDivToPrint">
+
+
+            <div class="article" id="{{article.barCode.toString()}}">
+                <p>{{article.articleName}}</p>
+                <span style="position: relative;">
+                    <p style="font-weight: 700;font-size: 2rem;">{{article.price.toString().substring(0,3)}}<span
+                            style="FONT-SIZE: 1.5rem;">{{article.price.toString().substring(3,5)}}</span></p>
+                    <p style="position: absolute;
+                top: -15px;
+                right: 0;
+            ">DH</p>
+                </span>
+                <p>Du 01/01/2022 au 01/01/2024 a zert</p>
+                <span style="position: absolute;right: 0;">
+                    <img style="width: 90px;height: 20px;transform:rotate(90deg);position: absolute;top: -15px;right: 0;"
+                        src="../../assets/barcode.webp" />
+                    <p style="transform:rotate(270deg);position: absolute;right: -10px;top: -15px;">{{article.barCode}}
+                    </p>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

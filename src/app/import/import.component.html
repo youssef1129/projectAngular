@@ -1,0 +1,8 @@
+<div class="cnt">
+    <button type="button" mat-raised-button (click)="fileInput.click()" color="warn">IMPORT <mat-icon>download</mat-icon></button>
+    <input hidden (change)="onFileSelected($event)" #fileInput type="file" id="file">
+
+    <h2 *ngIf="articles.length>0">Number of items : {{articles.length}}</h2>
+    <button (click)="print()" *ngIf="articles.length>0" mat-raised-button color="warn">PRINT <mat-icon>print</mat-icon></button>
+
+</div>

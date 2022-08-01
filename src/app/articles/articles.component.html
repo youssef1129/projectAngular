@@ -1,0 +1,19 @@
+
+<div class="articles">
+    <button *ngIf="articles.length>0" mat-raised-button color="warn" (click)="printAll()" >PRINT <mat-icon>print</mat-icon></button>
+
+    <div class="cnt">
+        <section *ngFor="let article of articles">
+            <label>{{article.articleName}}</label>
+            <label>{{article.barCode}}</label>
+            <mat-checkbox [disabled]="true" [checked]="(article.isPrinted)? true:false"color="red">
+                printed
+              </mat-checkbox>
+            <label>copies : {{article.qte}}</label>
+            <button mat-mini-fab color="warn" (click)="print(article)" >
+                <mat-icon>printer</mat-icon>
+              </button>
+        </section>
+    </div>
+    
+</div>

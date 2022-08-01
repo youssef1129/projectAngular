@@ -1,0 +1,60 @@
+@media print {
+    /* *{
+        display: none !important;
+    } */
+    /* .myDivToPrint {
+        background-color: white;
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        margin: 0;
+        padding: 15px;
+        font-size: 14px;
+        line-height: 18px;
+        z-index: 1000;
+        display: block;
+    } */
+    .notPrinted{
+        display: none;
+    }
+}
+
+.cnt{
+    padding: 4rem;
+    display: grid;
+    /* grid-template-columns: repeat(auto-fill,minmax(200px,1fr)); */
+    column-gap: 0.5rem;
+    row-gap: 1rem;
+    color: black;
+}
+.cnt>button:first-child{
+    position: fixed;
+    right: 20px;
+    BOTTOM: 20px;
+}
+.cnt2{
+    display: flex;
+    row-gap: 1rem;
+    flex-direction: column;
+    align-items: center;
+}
+
+.article{
+    background-color: white;
+    position: relative;
+    padding: 1rem;
+    height: 168px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.cnt>button:first-child{
+    position: fixed;
+    right: 20px;
+    BOTTOM: 20px;
+}

@@ -1,0 +1,32 @@
+.articles{
+    padding: 4rem;
+}
+.articles>button:first-child{
+    position: fixed;
+    right: 20px;
+    BOTTOM: 20px;
+}
+.cnt{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(400px,1fr));
+    row-gap: 1rem;
+    column-gap: 1rem;
+}
+
+section{
+    display: flex;
+    column-gap: 5px;
+    align-items: center;
+    box-shadow: 0px 0px 6px black;
+    padding: 5px;
+    border-radius: 10px;
+    justify-content: space-between;
+    background-color: rgb(229, 229, 229);
+    text-transform: capitalize;
+    transition: all 400ms linear;
+    color: black;
+}
+
+.print{
+    cursor: pointer;
+}

@@ -1,0 +1,10 @@
+<div class="cnt">
+    <Form (submit)="login()" [formGroup]="loginForm">
+        <Img src="../../assets/logo-labelvie.png" />
+        <div class="cnt2">
+            <input placeholder="username" formControlName="username"/>
+            <input type="password" placeholder="password" formControlName="password" />
+        </div>
+        <button class="btn" type="submit">Login</button>
+    </Form>
+</div>
