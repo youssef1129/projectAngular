@@ -12,12 +12,6 @@ export class NavComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  theme='light'
-  changetheme(){
-    document.getElementsByTagName('body')[0].classList.remove(this.theme)
-    this.theme==='light'? this.theme='dark':this.theme='light'
-
-    document.getElementsByTagName('body')[0].classList.add(this.theme)
-  }
+  
 
 }

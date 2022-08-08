@@ -20,6 +20,12 @@ import { MenuComponent } from './menu/menu.component';
 import { ImportComponent } from './import/import.component';
 import { TicketComponent } from './ticket/ticket.component';
 import { NgxPrinterModule } from 'ngx-printer';
+import {MatSelectModule} from '@angular/material/select';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatInputModule} from '@angular/material/input';
+import { NgChartsModule } from 'ng2-charts';
+import { LoadingComponent } from './loading/loading.component';
+
 
 const config: SocketIoConfig = {
   url: 'https://balisage.herokuapp.com/',
@@ -35,6 +41,7 @@ const config: SocketIoConfig = {
     MenuComponent,
     ImportComponent,
     TicketComponent,
+    LoadingComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -59,6 +66,10 @@ const config: SocketIoConfig = {
     MatIconModule,
     MatCheckboxModule,
     MatButtonModule,
+    MatProgressSpinnerModule,
+    MatSelectModule,
+    MatInputModule,
+    NgChartsModule,
     NgxPrinterModule.forRoot({printOpenWindow: true})
   ],
   providers: [],

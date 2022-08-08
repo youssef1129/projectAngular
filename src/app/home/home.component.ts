@@ -9,7 +9,7 @@ import { WebsocketService } from '../services/websocket.service';
 })
 export class HomeComponent implements OnInit {
 
-  isHidden = 'translateX(-100%)';
+  
   constructor(private route: Router) { }
   data: any;
   ngOnInit(): void {
@@ -17,13 +17,6 @@ export class HomeComponent implements OnInit {
     
   }
 
-  togglemenu(){
-    this.isHidden==='translateX(-100%)'
-    ?
-    this.isHidden='translateX(0)'
-    :
-    this.isHidden='translateX(-100%)'  
-        
-  }
+  
 
 }

@@ -1,19 +1,76 @@
+<app-loading *ngIf="isLoading"></app-loading>
+<button style="position: fixed;right: 20px;BOTTOM: 20px;z-index: 30;" *ngIf="articles.length>0" mat-raised-button
+    color="warn" (click)="printAll()">PRINT <mat-icon>print
+    </mat-icon>
+</button>
 
-<div class="articles">
-    <button *ngIf="articles.length>0" mat-raised-button color="warn" (click)="printAll()" >PRINT <mat-icon>print</mat-icon></button>
+<div *ngIf="!isLoading" class="articles">
+
+    <div class="filter">
+
+        <mat-form-field appearance="fill">
+            <mat-label style="color: white;">GROUP</mat-label>
+            <mat-select (selectionChange)="onGroupChange()" [(value)]="group">
+                <mat-option [value]="group.groupName" *ngFor="let group of data">{{group.groupName}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" *ngIf="group">
+            <mat-label style="color: white;">DEPARTEMENT</mat-label>
+            <mat-select [(value)]="dept">
+                <mat-option [value]="dept.deptName" *ngFor="let dept of depts">{{dept.deptName}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label style="color: white;">FROM</mat-label>
+            <input type="date" matInput (change)="changeEd($event)">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label style="color: white;">TO</mat-label>
+            <input type="date" matInput (change)="changeSd($event)">
+        </mat-form-field>
+
+        <button (click)="filter()" mat-raised-button color="warn">Filter</button>
+        <button (click)="reset()" mat-raised-button color="warn">Reset</button>
+
+    </div>
+
+    <div class="info">
+        <h2 style="border-bottom: 2px solid white;color: #b42a2b;">
+            <mat-icon>info</mat-icon> Info
+        </h2>
+        <div style="display: flex;align-items: center;">
+            <div style="width:100%">
+                <label>Date : {{info.date?info.date:'*'}}</label>
+                <label>Operations : {{articles.length}}</label>
+                <label>Group : {{info.group?info.group:'All'}}</label>
+                <label>Departement : {{info.dept?info.dept:'All'}}</label>
+                <label>Changed articles : {{articles.length>0?getPerc().toString().substring(0,4):''}}%</label>
+            </div>
+            <div>
+                <canvas style="height:100%;width:100%" *ngIf="articles.length>0" baseChart [type]="'pie'"
+                    [datasets]="pieChartDatasets" [labels]="pieChartLabels" [options]="pieChartOptions"
+                    [plugins]="pieChartPlugins" [legend]="pieChartLegend">
+                </canvas>
+            </div>
+        </div>
+    </div>
 
     <div class="cnt">
-        <section *ngFor="let article of articles">
+
+        <section (click)="print(article)"
+            [style.box-shadow]="article.isChanged ? '0px 0px 6px #fea1b5' : '0px 0px 6px #addaf8'"
+            *ngFor="let article of articles">
             <label>{{article.articleName}}</label>
             <label>{{article.barCode}}</label>
-            <mat-checkbox [disabled]="true" [checked]="(article.isPrinted)? true:false"color="red">
-                printed
-              </mat-checkbox>
-            <label>copies : {{article.qte}}</label>
-            <button mat-mini-fab color="warn" (click)="print(article)" >
-                <mat-icon>printer</mat-icon>
-              </button>
+            <mat-checkbox [disabled]="true" [checked]="(article.isChanged)? true:false" color="red">
+                changed
+            </mat-checkbox>
+            <label *ngIf="article.isChanged">copies : {{article.qte}}</label>
+
         </section>
     </div>
-    
+
 </div>

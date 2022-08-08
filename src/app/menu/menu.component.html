@@ -1,5 +1,12 @@
+<button mat-mini-fab color="warn" (click)="togglemenu()" style="z-index: 8;position: fixed;top: 5px;LEFT: 10px;">
+    <mat-icon>menu</mat-icon>
+</button>
+
 <div class="menu"  [ngStyle]="{'transform': isHidden}">
     <button (click)="goHome()" mat-raised-button color="warn">Home <mat-icon>home</mat-icon></button>
     <button (click)="goImport()" mat-raised-button color="warn">Import <mat-icon>download</mat-icon></button>
     <button (click)="logout()" mat-raised-button color="warn">Logout <mat-icon>logout</mat-icon></button>
+    <button style="place-self: center;" (click)="changetheme()" mat-mini-fab color="secondary" >
+        <mat-icon>wb_sunny</mat-icon>
+    </button>
 </div>

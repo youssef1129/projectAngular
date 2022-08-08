@@ -4,5 +4,7 @@ export interface Iarticle{
     price:string|number;
     qte?:number|string;
     time?:string;
-    isPrinted?:boolean|false
+    isChanged?:boolean|false;
+    dept?:string|null;
+    group?:string|null;
 }
