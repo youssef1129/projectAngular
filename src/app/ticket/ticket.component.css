@@ -33,6 +33,7 @@
     position: fixed;
     right: 20px;
     BOTTOM: 20px;
+    z-index: 4;
 }
 .cnt2{
     display: flex;
